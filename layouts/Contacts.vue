@@ -1,25 +1,25 @@
 <template>
-  <div>
+  <div class="layout">
     <AppHeader />
     <main>
       <Nuxt />
     </main>
-    <AppFooter />
+    <Footer />
     <AppFooterCookies />
   </div>
 </template>
 
 <script>
-import AppFooterCookies from '@/components/basePage/AppFooterCookies'
-import AppFooter from '@/components/basePage/AppFooter'
+import AppFooterCookies from '@/components/basePage/FooterCookies'
+import Footer from '@/components/basePage/Footer'
 import AppHeader from '@/components/basePage/Header'
 
 export default {
   name: 'LayoutCasesPage',
-  components: [
+  components: {
     AppFooterCookies,
-    AppFooter,
+    Footer,
     AppHeader
-  ]
+  }
 }
 </script>

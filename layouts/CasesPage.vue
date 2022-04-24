@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="layout">
     <AppHeader />
     <main>
       <nuxt />
@@ -9,14 +9,14 @@
 </template>
 
 <script>
-import AppFooterCookies from '@/components/basePage/AppFooterCookies'
+import AppFooterCookies from '@/components/basePage/FooterCookies'
 import AppHeader from '@/components/basePage/Header'
 
 export default {
   name: 'LayoutCasesPage',
-  components: [
+  components: {
     AppFooterCookies,
     AppHeader
-  ]
+  }
 }
 </script>
