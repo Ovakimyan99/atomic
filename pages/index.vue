@@ -44,11 +44,13 @@
       <h2 class="works-title">
         Кейсы
       </h2>
-      <div class="works-examples">
-        <div
+      <!-- <Swiper
+        class="works-examples swiper-wrapper"
+      >
+        <SwiperSlide
           v-for="{ text }, index of slides"
           :key="index"
-          class="works-slide"
+          class="works-slide swiper-slide"
         >
           <h2 class="works-slide__title">
             {{ text }}
@@ -56,14 +58,41 @@
           <AppButton class="works-slide__button">
             Посмотреть
           </AppButton>
+        </SwiperSlide>
+      </Swiper> -->
+
+      <div class="swiper-container works-examples">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <div
+            v-for="{ text }, index of slides"
+            :key="index"
+            class="works-slide swiper-slide"
+          >
+            <h2 class="works-slide__title">
+              {{ text }}
+            </h2>
+            <AppButton class="works-slide__button">
+              Посмотреть
+            </AppButton>
+          </div>
         </div>
+
+        <!-- If we need scrollbar -->
+        <!-- <div class="swiper-scrollbar" /> -->
       </div>
     </section>
   </div>
 </template>
 
 <script>
+import Swiper, { Scrollbar } from 'swiper'
 import AppButton from '@/components/base/MainButton.vue'
+
+// Import Swiper styles
+import 'swiper/swiper-bundle.css'
+
+Swiper.use([Scrollbar])
 
 export default {
   name: 'IndexPage',
@@ -99,6 +128,25 @@ export default {
         }
       ]
     }
+  },
+  mounted() {
+    // eslint-disable-next-line no-new
+    new Swiper('.swiper-container', {
+      loop: false,
+      slidesPerView: 3.2,
+      autoHeight: true,
+      breakpoints: {
+        320: {
+          slidesPerView: 1
+        },
+        760: {
+          slidesPerView: 2.35
+        },
+        980: {
+          slidesPerView: 3.35
+        }
+      }
+    })
   }
 }
 </script>
@@ -336,6 +384,7 @@ export default {
   }
 
   &-examples {
+    // @include swiper-wrapper();
     min-height: 80vh;
     width: 100%;
     display: flex;
@@ -357,6 +406,7 @@ export default {
   }
 
   &-slide {
+    height: auto;
     position: relative;
     padding: $margin-default;
     display: flex;
