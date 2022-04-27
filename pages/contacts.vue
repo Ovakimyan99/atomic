@@ -13,7 +13,8 @@ export default {
   name: 'ContactsPage',
   components: {
     AppPageTitle
-  }
+  },
+  layout: 'Contacts'
 }
 </script>
 
@@ -29,11 +30,11 @@ export default {
     margin: 162px 26px 72px;
 
     @media (min-width: 768px) {
-      padding: 50px 0 64px 0px;
+      margin: 100px 0 64px 26px;
     }
 
     @media (min-width: 980px) {
-      padding: 0 0 0 40px;
+      margin: 160px 0 72px 40px;
     }
   }
 }

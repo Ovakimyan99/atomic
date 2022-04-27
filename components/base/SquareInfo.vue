@@ -22,7 +22,8 @@ export default {
 
 <style lang="scss" scoped>
 .square-info {
-  transition: all 0.5s;
+  transition:  background 0.5s ease;
+  position: relative;
   border: $border-in-light;
   border-bottom: none;
   border-left: none;
@@ -31,25 +32,38 @@ export default {
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  width: 100%;
+  width: calc(25% - 4rem);
   flex-grow: 1;
   flex-basis: 100%;
-  min-height: 25vh;
+  min-height: calc(50vh - 4rem);
+  background: $font-color;
+  color: $background-color;
 
   ::v-deep .border {
     border-left: $border-in-light;
   }
 
   @media (min-width: 580px) {
-    height: 50%;
-    flex-basis: 50%;
+    height: auto;
+    flex-basis: calc(50% - 5rem);
   }
 
   &__text {
-    font-size: 24px;
-    line-height: 26px;
-    letter-spacing: -0.05em;
+    line-height: 1.1;
     color: $background-color;
+    z-index: 2;
+    position: relative;
+
+    font-size: 15px;
+    letter-spacing: -0.025em;
+    max-width: 155px;
+  }
+
+  &__title {
+    font-size: 24px;
+    line-height: 1.1;
+    z-index: 2;
+    position: relative;
   }
 
   &:hover &__text, &__icon {

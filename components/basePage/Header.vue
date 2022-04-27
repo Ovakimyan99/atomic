@@ -11,15 +11,15 @@
       </div>
     </nav>
     <transition name="fade">
-      <AppSquareScreen v-show="hiddenMenu" class="menu menu__content flex-rows">
+      <AppSquareScreen v-show="hiddenMenu" class="menu">
         <template #IntegralPart>
-          <div class="menu__navigation flex-columns">
+          <div class="menu-navigation">
             <nuxt-link
               v-for="{name, link} of routs"
               :key="name"
               :to="link"
               exact-active-class="active-rout"
-              class="menu__navigation__text"
+              class="menu-navigation__text"
             >
               <span @click="hiddenMenu = false">
                 {{ name }}
@@ -198,8 +198,16 @@ export default {
   z-index: 2;
   position: fixed;
   width: 100%;
-  height: calc(100% - 69px);
+  height: calc(100% - 61px);
   background-color: $font-color;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+
+  @media (min-width: 980px) {
+    flex-direction: row;
+    overflow-y: hidden;
+  }
 
   &__icon {
     cursor: pointer;
@@ -214,57 +222,25 @@ export default {
     }
   }
 
-  &__content {
-    height: 100%;
-    overflow-y: auto;
-    overflow-x: hidden;
+  &-navigation {
     display: flex;
     flex-direction: column;
-
-    @media (min-width: 800px) {
-      flex-direction: row;
-    }
-  }
-
-  &__navigation {
-    width: calc(100% - 40px);
-    height: auto;
-    flex-grow: 0;
-    display: flex;
     justify-content: center;
-    flex-direction: column;
-    border: none;
-    padding: 0 20px;
-    transform: translateY(25%);
+    height: 100%;
 
     @media (min-width: 480px) {
-      min-height: 36px;
       flex-direction: row;
-      overflow-x: auto;
-      overflow-y: hidden;
       justify-content: space-between;
+      overflow-x: auto;
+      height: auto;
     }
 
     @media (min-width: 678px) {
-      padding: 80px 20px 40px;
+      margin: auto;
+      margin-left: 0;
       flex-direction: column;
       justify-content: center;
-      overflow: visible;
-    }
-
-    @media (min-width: 800px) {
-      width: calc(100% - 20px);
-      padding: 0;
-      padding-left: 20px;
-      flex: 1 0 35%;
-    }
-
-    @media (min-width: 980px) {
-      flex-direction: column;
-      flex-grow: 1;
-      // min-width: 25rem;
-      // margin-left: $margin-default;
-      padding-left: $margin-default;
+      overflow: hidden;
     }
 
     &__text {
@@ -273,41 +249,31 @@ export default {
       font-size: 43px;
       color: $background-color;
       text-decoration: none;
+      line-height: 1.1;
       display: inline-block;
       width: max-content;
-      line-height: 1.1;
-
-      &:not(:last-child) {
-        margin-bottom: 16px;
-
-        @media (min-width: 480px) {
-          margin-right: 32px;
-          margin-bottom: 0;
-        }
-
-        @media (min-width: 678px) {
-          margin-bottom: 16px;
-        }
-      }
-
-      @media (min-width: 480px) {
-        font-size: 25px;
-        height: 36px;
-        flex: 1 0 auto;
-      }
-
-      @media (min-width: 678px) {
-        font-size: 60px;
-        height: auto;
-      }
-
-      @media (min-width: 980px) {
-        font-size: 68px;
-      }
 
       &:hover {
         cursor: pointer;
         @include textGradient;
+      }
+
+      @media (min-width: 480px) {
+        font-size: 25px;
+        flex: 1 0 auto;
+
+        &:not(:last-child) {
+          margin-right: 20px;
+        }
+      }
+
+      @media (min-width: 678px) {
+        font-size: 60px;
+        flex: auto;
+      }
+
+      @media (min-width: 980px) {
+        font-size: 68px;
       }
     }
   }
