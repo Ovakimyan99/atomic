@@ -1,0 +1,15 @@
+@mixin textGradient {
+  background: $text-gradient;
+	background-clip: text;
+   -webkit-background-clip: text;
+   color:transparent;
+	-webkit-text-fill-color: transparent;
+}
+
+@mixin fonGradient {
+  background: $linear-gradient;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color:transparent;
+ -webkit-text-fill-color: transparent;
+}

@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/aboutUs", {data:[{}],fetch:{},mutations:void 0});

@@ -1,0 +1,95 @@
+@import '~/assets/styles/_variables';
+@import '~/assets/styles/_mixins';
+
+body {
+  transition: all 1s;
+	font-family: $font-family;
+	color: $font-color;
+	background-color: $background-color;
+	font-style: normal;
+	font-weight: normal;
+	letter-spacing: $letter-spacing;
+}
+
+.layout {
+  padding-top: 60px;
+  width: 100%;
+  overflow: hidden;
+}
+
+h1 {
+	font-size: $font-size-large;
+	line-height: $line-height-large;
+	font-weight: normal;
+}
+
+h2 {
+	line-height: $line-height-medium;
+	font-size: $font-size-medium;
+	font-weight: normal;
+}
+
+p {
+	font-size: $font-size-small;
+	line-height: $line-height-small;
+	font-weight: normal;
+	letter-spacing: -0.025em;
+}
+
+.flex-row {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.flex-column {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.text-gradient {
+  @include textGradient;
+  display: inline-block;
+}
+
+.margin-left-default {
+	margin-left: $margin-default;
+}
+
+::-webkit-scrollbar-button {
+  background-repeat: no-repeat;
+  width: 5px;
+  height: 0px;
+}
+::-webkit-scrollbar-track {
+  background-color:#99a0ca00;
+}
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  background-color:#272727;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #41485a;
+} 
+::-webkit-resizer {
+  background-repeat: no-repeat;
+  width: 2px;
+  height: 2px;
+}
+::-webkit-scrollbar {
+  width: 1px;
+}
+
+.swiper-scrollbar {
+  background: $unimportant !important;
+
+  &.black .swiper-scrollbar-drag {
+    background: rgba($background-color, 0.5) !important;
+  }
+}
+
+.swiper-scrollbar-drag {
+  background: $font-color !important;
+}
