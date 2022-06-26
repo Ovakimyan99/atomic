@@ -1,4 +1,4 @@
-# atomic-app
+# atomic
 
 ## Build Setup
 

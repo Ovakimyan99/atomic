@@ -2,10 +2,10 @@ export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   target: 'static',
   router: {
-    base: '/atomic-app/'
+    base: '/atomic/'
   },
   head: {
-    title: 'atomic-app',
+    title: 'atomic',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
